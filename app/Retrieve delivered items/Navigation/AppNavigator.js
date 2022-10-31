@@ -1,10 +1,11 @@
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import AppDatePicker from "../Components/common/datePicker";
-import PendingRequisition from './../../aa/Components/IT20122614/PendingRequisition';
-import RegisterPage from './../../aa/Components/IT20122614/RegisterPage';
+
 import DeliveredItemNavigator from "./DeliveredItemNavigator";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import colors from "../config/colors";
+import PendingRequisition from "../../Requisition/Components/IT20122614/PendingRequisition";
+import RegisterPage from "../../Requisition/Components/IT20122614/RegisterPage";
 
 const Drawer = createDrawerNavigator();
 
