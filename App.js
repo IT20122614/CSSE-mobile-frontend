@@ -1,15 +1,15 @@
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import RegisterPage from "./Components/IT20122614/RegisterPage";
-import PendingRequisition from "./Components/IT20122614/PendingRequisition";
+import Header from "./app/Retrieve delivered items/Components/common/header";
+// import RegisterPage from "./Components/IT20122614/RegisterPage";
+// import PendingRequisition from "./Components/IT20122614/PendingRequisition";
+import MyDrawer from "./app/Retrieve delivered items/Navigation/AppNavigator";
 const Stack = createNativeStackNavigator();
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen name="Register" component={RegisterPage} />
-        <Stack.Screen name="pending-req" component={PendingRequisition} />
-      </Stack.Navigator>
+      {/* <Header /> */}
+      <MyDrawer />
     </NavigationContainer>
   );
 }
