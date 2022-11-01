@@ -9,6 +9,7 @@ import {
   SafeAreaView,
   ScrollView,
 } from "react-native";
+const avatarImg = require("../../../../assets/avatarIcon.png");
 
 export default function SpecificRequisition({ route, navigation }) {
   // Get the param
@@ -20,12 +21,15 @@ export default function SpecificRequisition({ route, navigation }) {
       <ScrollView>
         <View style={styles.singleView}>
           <View>
-            <View style={styles.row}>
-              <View style={styles.box1}>
-                <Text style={styles.textContent}>gs</Text>
+            <View style={styles.noBackColor}>
+              <View style={styles.boxAvatar}>
+                <Image source={avatarImg} alt="#" style={styles.avatarImgs} />
               </View>
-              <View style={styles.box2}>
-                <Text style={styles.textContentData}>ss</Text>
+              <View style={styles.fontSize1}>
+                <Text style={styles.fontSize1}>ID : 1</Text>
+              </View>
+              <View>
+                <Text style={styles.fontSize2}>Date: 2022/10/29</Text>
               </View>
             </View>
           </View>
@@ -99,6 +103,11 @@ const styles = StyleSheet.create({
     margin: 20,
     borderRadius: 15,
   },
+  avatarImgs: {
+    width: 50,
+    height: 50,
+    marginLeft: 20,
+  },
   textContent: {
     marginTop: 5,
   },
@@ -110,11 +119,24 @@ const styles = StyleSheet.create({
     paddingTop: 10,
     width: 160,
   },
+  boxAvatar: {
+    paddingLeft: 0,
+    paddingTop: 0,
+    width: 90,
+  },
   box2: {
     backgroundColor: "white",
     padding: 10,
     borderRadius: 10,
     width: 160,
+  },
+  boxNoBackColor: {
+    padding: 10,
+    width: 40,
+  },
+  boxNoBackColorDate: {
+    padding: 10,
+    width: 100,
   },
   headerMain: {
     fontSize: 26,
@@ -136,6 +158,13 @@ const styles = StyleSheet.create({
     marginBottom: 5,
     padding: 8,
   },
+  noBackColor: {
+    flexDirection: "row",
+    flexWrap: "wrap",
+    marginTop: 10,
+    marginBottom: 5,
+    padding: 8,
+  },
   row2: {
     flexDirection: "row",
     flexWrap: "wrap",
@@ -144,4 +173,12 @@ const styles = StyleSheet.create({
     marginBottom: 5,
     padding: 8,
   },
+  fontSize1:{
+    fontSize: 20,
+    marginLeft: 0,
+  },
+  fontSize2:{
+    fontSize: 20,
+    marginLeft: 20,
+  }
 });
