@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   StyleSheet,
   Text,
@@ -11,7 +11,7 @@ import {
   FlatList,
 } from "react-native";
 import { Table, Row, Rows } from "react-native-table-component";
-
+import http from "../../../Retrieve delivered items/api/http";
 // const Item = ({ title }) => (
 //   <View style={[styles.item, {flexDirection: "row"}]}>
 //     <Text style={styles.title}>{title}</Text>
@@ -58,6 +58,23 @@ export default function PendingRequisition({ navigation }) {
 
   const [data, setData] = useState(tableData);
 
+  const [pendingList, setPendingList] = useState([]);
+
+  useEffect(() => {
+    function getPendingRequisition() {
+      http
+        .get(`/requisition/get-pending-orders`)
+        .then((result) => {
+          console.log(result.data);
+          setPendingList(result.data);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    }
+    getPendingRequisition();
+  }, []);
+
   function onPressLearnMore() {
     alert("");
   }
@@ -75,14 +92,10 @@ export default function PendingRequisition({ navigation }) {
           <Text style={[styles.textContent]}>{item.id}</Text>
         </View>
         <View style={[styles.box2]}>
-          <Text style={[styles.textContent]}>{item.name}</Text>
+          <Text style={[styles.textContent]}>{item.supplierName}</Text>
         </View>
         <View style={[styles.box3]}>
-          <Text
-            style={[styles.textContent]}
-          >
-            {item.status}
-          </Text>
+          <Text style={[styles.textContent]}>Pending</Text>
         </View>
       </View>
     </TouchableOpacity>
@@ -116,7 +129,7 @@ export default function PendingRequisition({ navigation }) {
       </Table>
 
       <FlatList
-        data={DATA}
+        data={pendingList}
         renderItem={renderItem}
         keyExtractor={(item) => item.id}
         extraData={selectedId}

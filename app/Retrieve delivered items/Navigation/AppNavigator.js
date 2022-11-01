@@ -6,6 +6,7 @@ import { MaterialCommunityIcons } from "@expo/vector-icons";
 import colors from "../config/colors";
 import PendingRequisition from "../../Requisition/Components/IT20122614/PendingRequisition";
 import RegisterPage from "../../Requisition/Components/IT20122614/RegisterPage";
+import ApprovedRequisition from "../../Requisition/Components/IT20122614/ApprovedRequisition";
 
 const Drawer = createDrawerNavigator();
 

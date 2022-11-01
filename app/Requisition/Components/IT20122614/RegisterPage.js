@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   StyleSheet,
   Text,
@@ -14,6 +14,7 @@ import { Picker } from "@react-native-picker/picker";
 import DateTimePicker from "@react-native-community/datetimepicker";
 import { EvilIcons } from "@expo/vector-icons";
 import { MaterialIcons } from "@expo/vector-icons";
+import http from "../../../Retrieve delivered items/api/http";
 
 export default function RegisterPage({ navigation }) {
   const [siteManagerName, setsiteManagerName] = useState("");
@@ -22,12 +23,68 @@ export default function RegisterPage({ navigation }) {
   const [quantity, setQuantity] = useState(0);
   const [type, setType] = useState("");
   const [notes, setNotes] = useState("");
-  const [selectedLanguage, setSelectedLanguage] = useState();
-  // const [date, setDate] = useState(new Date())
+  const [selectedLanguage, setSelectedLanguage] = useState("");
+  const [selectedItems, setSelectedItems] = useState("");
   const [open, setOpen] = useState(false);
   const [date, setDate] = useState(new Date(1598051730000));
   const [mode, setMode] = useState("date");
   const [show, setShow] = useState(false);
+
+  // const [itemList, setItemList] = useState([]);
+  // const [supplierList, setSupplierList] = useState([]);
+
+  const itemList = ["Cement", "Gal", "Wali"];
+  const supplierList = ["Anura Jayasekara"];
+
+  useEffect(() => {
+    function getItemList() {
+      http
+        .get(`/requisition/get-lists`)
+        .then((result) => {
+          // setItemList(result.data.list);
+          // setSupplierList(result.data.supplier);
+
+          console.log(result.data);
+          console.log(result.data.supplier);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    }
+    getItemList();
+  }, []);
+
+  function orderRequisitions() {
+    const order = {
+      deliveryAddress: address,
+      itemName: selectedItems,
+      deliveryDate: date,
+      quantity: quantity,
+      notes: notes,
+      siteManagerName: siteManagerName,
+      supplierName: selectedLanguage,
+      unitType: type,
+    };
+    http
+      .post(`/requisition/add-new`, order)
+      .then((result) => {
+        alert("Successfully added your Requisition");
+        console.log(result.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
+  function resetOrderData() {
+    setaddress("");
+    setSelectedItems("");
+    setDate(new Date(1598051730000));
+    setQuantity(0);
+    setNotes("");
+    setsiteManagerName("");
+    setSelectedLanguage("");
+    setType("");
+  }
 
   const onChange = (event, selectedDate) => {
     const currentDate = selectedDate;
@@ -81,8 +138,12 @@ export default function RegisterPage({ navigation }) {
                 }
                 style={styles.inputField}
               >
-                <Picker.Item label="Java" value="java" />
-                <Picker.Item label="JavaScript" value="js" />
+                {/* <Picker.Item label="Java" value="java" />
+                <Picker.Item label="JavaScript" value="js" /> */}
+
+                {supplierList.map((item, index) => {
+                  return <Picker.Item label={item} value={item} key={index} />;
+                })}
               </Picker>
             </View>
           </View>
@@ -92,14 +153,17 @@ export default function RegisterPage({ navigation }) {
             </View>
             <View style={[styles.box2]}>
               <Picker
-                selectedValue={selectedLanguage}
+                selectedValue={selectedItems}
                 onValueChange={(itemValue, itemIndex) =>
-                  setSelectedLanguage(itemValue)
+                  setSelectedItems(itemValue)
                 }
                 style={styles.inputField}
               >
-                <Picker.Item label="Java" value="java" />
-                <Picker.Item label="JavaScript" value="js" />
+                {/* <Picker.Item label="Java" value="java" />
+                <Picker.Item label="JavaScript" value="js" /> */}
+                {itemList.map((item, index) => {
+                  return <Picker.Item label={item} value={item} key={index} />;
+                })}
               </Picker>
             </View>
           </View>
@@ -132,7 +196,7 @@ export default function RegisterPage({ navigation }) {
                 <TextInput
                   style={styles.inputField}
                   value={date}
-                  placeholder="      dd/mm/yyyy"
+                  placeholder="         dd/mm/yyyy"
                   keyboardType="text"
                   editable={false}
                 />
@@ -206,7 +270,7 @@ export default function RegisterPage({ navigation }) {
             <View style={[styles.boxbtn]}>
               <TouchableOpacity
                 style={styles.buttonReset}
-                onPress={() => navigation.navigate("Login")}
+                onPress={resetOrderData}
               >
                 <Text style={styles.buttonText2}>Reset</Text>
               </TouchableOpacity>
@@ -214,7 +278,7 @@ export default function RegisterPage({ navigation }) {
             <View style={[styles.boxbtn]}>
               <TouchableOpacity
                 style={styles.button}
-                onPress={() => navigation.navigate("pending-req")}
+                onPress={orderRequisitions}
               >
                 <Text style={styles.buttonText}>Add Order</Text>
               </TouchableOpacity>

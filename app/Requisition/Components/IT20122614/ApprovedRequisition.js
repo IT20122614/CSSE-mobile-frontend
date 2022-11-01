@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   StyleSheet,
   Text,
@@ -12,6 +12,7 @@ import {
 } from "react-native";
 import { Table, Row, Rows } from "react-native-table-component";
 import { EvilIcons } from "@expo/vector-icons";
+import http from "../../../Retrieve delivered items/api/http";
 
 // const Item = ({ title }) => (
 //   <View style={[styles.item, {flexDirection: "row"}]}>
@@ -67,9 +68,25 @@ export default function ApprovedRequisition({ navigation }) {
   // const renderItem = ({ item }) => <Item title={item.title} />;
 
   //   const [data, setData] = useState(tableData);
+  const [approvedList, setApprovedList] = useState([]);
+
+  useEffect(() => {
+    function getApprovedRequisition() {
+      http
+        .get(`/requisition/get-approved-requisitions`)
+        .then((result) => {
+          console.log(result.data);
+          setApprovedList(result.data);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    }
+    getApprovedRequisition();
+  }, []);
 
   function onPressLearnMore() {
-    alert("");
+    // alert("");
   }
   const Item = ({ item, onPress, backgroundColor, textColor }) => (
     <View style={[styles.item, backgroundColor]}>
@@ -90,17 +107,16 @@ export default function ApprovedRequisition({ navigation }) {
             <Text style={[styles.textContent]}>: {item.id}</Text>
           </View>
           <View style={styles.row}>
-            <Text style={[styles.textContent]}>: {item.item}</Text>
+            <Text style={[styles.textContent]}>: {item.itemName}</Text>
           </View>
           <View style={styles.row}>
-            <Text style={[styles.textContent]}>: {item.quantity}</Text>
+            <Text style={[styles.textContent]}>
+              : {item.quantity} {item.unitType}
+            </Text>
           </View>
         </View>
         <View style={[styles.box3]}>
-          <TouchableOpacity
-            style={styles.button}
-            onPress={() => navigation.navigate("Login")}
-          >
+          <TouchableOpacity style={styles.button}>
             <Text style={styles.buttonText}>View</Text>
           </TouchableOpacity>
         </View>
@@ -140,7 +156,7 @@ export default function ApprovedRequisition({ navigation }) {
       <Text style={styles.headerMain}>Approved Purchased Requisitions</Text>
 
       <FlatList
-        data={DATA}
+        data={approvedList}
         renderItem={renderItem}
         keyExtractor={(item) => item.id}
         extraData={selectedId}
