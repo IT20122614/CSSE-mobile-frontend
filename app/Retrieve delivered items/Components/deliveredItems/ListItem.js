@@ -21,46 +21,45 @@ export default function ListItem({
   return (
     <GestureHandlerRootView>
       {/* <Swipeable renderRightActions={renderRightActions}> */}
-      
-        <View style={styles.container}>
-          {IconComponent}
-          {/* {image && <Image style={styles.image} source={image} />} */}
-          <Avatar
-            size={64}
-            rounded
-          
-          source={{uri:image}}
-            containerStyle={{ backgroundColor: "#6733b9" }}
-            // source={l.image_url ? { uri: l.image_url } : {}}
-            // key={`${chunkIndex}-${i}`}
-          />
-          <View style={styles.detailsContainer}>
-            <View>
-              <Text style={styles.text}>Supplier </Text>
-              <Text style={styles.text}>Item </Text>
-              <Text style={styles.text}>Quantity </Text>
-              <Text style={styles.text}>Brand </Text>
-            </View>
-            <View style={{ marginLeft: 10 }}>
-              <Text style={styles.text}>{details.supplier}</Text>
-              <Text style={styles.text}>{details.item} </Text>
-              <Text style={styles.text}>{details.quantity} </Text>
-              <Text style={styles.text}>{details.brand} </Text>
-            </View>
+
+      <View style={styles.container}>
+        {IconComponent}
+        {/* {image && <Image style={styles.image} source={image} />} */}
+        <Avatar
+          size={64}
+          rounded
+          source={{ uri: image }}
+          containerStyle={{ backgroundColor: "#6733b9" }}
+          // source={l.image_url ? { uri: l.image_url } : {}}
+          // key={`${chunkIndex}-${i}`}
+        />
+        <View style={styles.detailsContainer}>
+          <View>
+            <Text style={styles.text}>Supplier </Text>
+            <Text style={styles.text}>Item </Text>
+            <Text style={styles.text}>Quantity </Text>
+            <Text style={styles.text}>Brand </Text>
+          </View>
+          <View style={{ marginLeft: 10 }}>
+            <Text style={styles.text}>P.K Withanage</Text>
+            <Text style={styles.text}>{details.item} </Text>
+            <Text style={styles.text}>{details.quantity} </Text>
+            <Text style={styles.text}>{details.brand} </Text>
+          </View>
         </View>
         <TouchableHighlight onPress={onPress} underlayColor="none">
-          <View style={styles.chevron} >
-              <MaterialCommunityIcons
-                name="chevron-right"
-                size={45}
-                color="white"
-                style={styles.icon}
-              />
+          <View style={styles.chevron}>
+            <MaterialCommunityIcons
+              name="chevron-right"
+              size={45}
+              color="white"
+              style={styles.icon}
+            />
             <Text style={styles.moreDetails}>More Details</Text>
-        </View>
+          </View>
         </TouchableHighlight>
-        </View>
-      
+      </View>
+
       {/* </Swipeable> */}
     </GestureHandlerRootView>
   );

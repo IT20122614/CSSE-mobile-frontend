@@ -125,11 +125,13 @@ console.log(message)
             <Avatar
               size={64}
               rounded
-              source={{ uri: item.image }}
+              source={{
+                uri: "https://www.w3schools.com/howto/img_avatar2.png",
+              }}
               containerStyle={{ backgroundColor: "#6733b9", marginBottom: 5 }}
             />
             <Text>SUPPLIER</Text>
-            <Text style={styles.text}>{item.details.supplier}</Text>
+            <Text style={styles.text}>{route.params.supplier.name}</Text>
           </View>
         </View>
         {/* image upload */}
@@ -267,7 +269,9 @@ console.log(message)
                     <Text style={styles.text}>Rejected Reson </Text>
                   </View>
                   <View style={{ marginLeft: 10 }}>
-                    <Text style={styles.text}>: {item.details.supplier}</Text>
+                    <Text style={styles.text}>
+                      : {route.params.supplier.name}
+                    </Text>
                     <Text style={styles.text}>: 99999082765 </Text>
                     <Text style={styles.text}>: 02/05/2022 </Text>
                   </View>
