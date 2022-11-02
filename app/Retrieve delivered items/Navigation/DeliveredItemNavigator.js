@@ -19,8 +19,9 @@ export default function DeliveredItemNavigator() {
       <Stack.Screen
         name="Delivered Item Details"
         component={DeliveredItemDetailsScreen}
+        options={{ headerShown: false }}
       />
-      <Stack.Screen name="Payment" component={PaymentScreen} />
+      <Stack.Screen name="Payment" component={PaymentScreen}  options={{ headerShown: false }} />
       <Stack.Screen name="Register" component={RegisterPage} />
       <Stack.Screen
         name="Approved"

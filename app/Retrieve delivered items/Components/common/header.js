@@ -16,11 +16,15 @@ const logoImg = require("../../../Requisition/Components/assets/logoP.png");
 const avatarImg = require("../../../Requisition/Components/assets/profileimg.png");
 const bellIcon = require("../../../Requisition/Components/assets/bellIcon.png");
 const mailBox = require("../../../Requisition/Components/assets/mailBox.png");
-
-export default function Header() {
+import { MaterialCommunityIcons } from "@expo/vector-icons";
+import {DrawerActions} from "@react-navigation/native";
+export default function Header({navigation}) {
   return (
     <View style={styles.header}>
       <View style={styles.noBackColor}>
+        <View>
+          <MaterialCommunityIcons name="dots-vertical" color={colors.primary} size={45}  />
+        </View>
         <View style={styles.boxAvatar}>
           <Image source={logoImg} alt="#" style={styles.avatarImgs} />
         </View>
@@ -42,7 +46,7 @@ const styles = StyleSheet.create({
     backgroundColor: colors.black,
     height: 70,
     width: "100%",
-    marginTop: 25,
+    marginTop: 35,
   },
   mailBox: {
     width: 25,
@@ -76,7 +80,7 @@ const styles = StyleSheet.create({
   },
   fontSize1: {
     fontSize: 20,
-    marginLeft: 120,
+    marginLeft: 70,
   },
   profileDiv: {
     alignItems: "flex-end",
