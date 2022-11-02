@@ -23,7 +23,7 @@ export default function Home({ navigation }) {
             {/* <Text style={styles.imageText}>HAPPY MARRIED LIFE</Text> */}
             <TouchableOpacity
               style={styles.button}
-              onPress={() => navigation.navigate("Delivered Items List")}
+              onPress={() => navigation.navigate("Deliverd Items")}
             >
               <Text style={styles.buttonText}>Get Start</Text>
             </TouchableOpacity>

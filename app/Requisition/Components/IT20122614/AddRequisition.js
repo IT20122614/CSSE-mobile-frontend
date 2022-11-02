@@ -16,7 +16,7 @@ import { EvilIcons } from "@expo/vector-icons";
 import { MaterialIcons } from "@expo/vector-icons";
 import http from "../../../Retrieve delivered items/api/http";
 
-export default function RegisterPage({ navigation }) {
+export default function AddRequisition({ navigation }) {
   const [siteManagerName, setsiteManagerName] = useState("");
   const [address, setaddress] = useState("");
   const [datep, setDatep] = useState(new Date());

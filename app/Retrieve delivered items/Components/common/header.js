@@ -40,13 +40,13 @@ export default function Header() {
 const styles = StyleSheet.create({
   header: {
     backgroundColor: colors.black,
-    height: 60,
+    height: 70,
     width: "100%",
-    marginTop: 40,
+    marginTop: 25,
   },
   mailBox: {
-    width: 20,
-    height: 20,
+    width: 25,
+    height: 25,
     marginLeft: 20,
     float: "right",
     marginTop: 10,
@@ -59,13 +59,9 @@ const styles = StyleSheet.create({
     padding: 8,
   },
   boxAvatar: {
-    paddingLeft: 0,
-    paddingTop: 0,
     width: 90,
   },
   avatarImgs: {
-    width: 70,
-    height: 70,
     marginLeft: 20,
     float: "right",
   },
@@ -80,7 +76,7 @@ const styles = StyleSheet.create({
   },
   fontSize1: {
     fontSize: 20,
-    marginLeft: 100,
+    marginLeft: 120,
   },
   profileDiv: {
     alignItems: "flex-end",

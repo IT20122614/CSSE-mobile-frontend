@@ -118,7 +118,7 @@ export default function PendingRequisition({ navigation }) {
 
   return (
     <SafeAreaView style={styles.mainSheet}>
-      <Text style={styles.headerMain}>Add Purchase Requisition</Text>
+      <Text style={styles.headerMain}>Pending Purchase Requisition</Text>
       {/* <ScrollView style={styles.container}> */}
       <Table borderStyle={{ backgroundColor: "grey" }}>
         <Row
@@ -162,7 +162,7 @@ const styles = StyleSheet.create({
     width: 100,
   },
   headerMain: {
-    fontSize: 26,
+    fontSize: 24,
     textAlign: "center",
     fontWeight: "bold",
     marginTop: 20,
@@ -195,7 +195,7 @@ const styles = StyleSheet.create({
     marginRight: 20,
   },
   headText: {
-    fontSize: 22,
+    fontSize: 18,
     fontWeight: "bold",
     textAlign: "left",
     color: "grey",

@@ -3,7 +3,7 @@ import DeliveredItemDetailsScreen from "../Screens/DeliveredItemDetailsScreen";
 import DeliveredItemListScreen from "../Screens/DeliveredItemListScreen";
 import PaymentScreen from "../Screens/PaymentScreen";
 
-import RegisterPage from "../../Requisition/Components/IT20122614/RegisterPage";
+import RegisterPage from "../../Requisition/Components/IT20122614/AddRequisition";
 import PendingRequisition from "../../Requisition/Components/IT20122614/PendingRequisition";
 import SpecificRequisition from "../../Requisition/Components/IT20122614/SpecificRequisition";
 import ApprovedRequisition from "../../Requisition/Components/IT20122614/ApprovedRequisition";

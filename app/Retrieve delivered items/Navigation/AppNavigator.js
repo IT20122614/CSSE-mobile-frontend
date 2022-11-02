@@ -2,11 +2,14 @@ import { createDrawerNavigator } from "@react-navigation/drawer";
 import DeliveredItemNavigator from "./DeliveredItemNavigator";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import colors from "../config/colors";
-import PendingRequisition from "../../Requisition/Components/IT20122614/PendingRequisition";
-import RegisterPage from "../../Requisition/Components/IT20122614/RegisterPage";
 import Entypo from "react-native-vector-icons/Entypo";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import Home from "../../Requisition/Common/Home";
+
+import RegisterPage from "../../Requisition/Components/IT20122614/AddRequisition";
+import PendingRequisition from "../../Requisition/Components/IT20122614/PendingRequisition";
+import SpecificRequisition from "../../Requisition/Components/IT20122614/SpecificRequisition";
+import ApprovedRequisition from "../../Requisition/Components/IT20122614/ApprovedRequisition";
 
 const Drawer = createDrawerNavigator();
 
@@ -46,7 +49,7 @@ export default function MyDrawer() {
       />
       <Drawer.Screen
         name="Add PR"
-        component={PendingRequisition}
+        component={RegisterPage}
         options={{
           drawerIcon: ({ size, color }) => (
             <MaterialCommunityIcons
@@ -59,7 +62,7 @@ export default function MyDrawer() {
       />
       <Drawer.Screen
         name="Pending PR"
-        component={RegisterPage}
+        component={PendingRequisition}
         options={{
           drawerIcon: ({ size, color }) => (
             <MaterialCommunityIcons
@@ -72,7 +75,7 @@ export default function MyDrawer() {
       />
       <Drawer.Screen
         name="Approved PR"
-        component={RegisterPage}
+        component={ApprovedRequisition}
         options={{
           drawerIcon: ({ size, color }) => (
             <MaterialCommunityIcons
