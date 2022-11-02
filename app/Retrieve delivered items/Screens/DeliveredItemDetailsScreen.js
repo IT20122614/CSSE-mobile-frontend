@@ -126,7 +126,7 @@ console.log(message)
               size={64}
               rounded
               source={{
-                uri: "https://www.w3schools.com/howto/img_avatar2.png",
+                uri: "https://cdn.dribbble.com/users/2364329/screenshots/10481283/media/f013d5235bfcf1753d56cad154f11a67.jpg?compress=1&resize=400x300&vertical=top",
               }}
               containerStyle={{ backgroundColor: "#6733b9", marginBottom: 5 }}
             />
