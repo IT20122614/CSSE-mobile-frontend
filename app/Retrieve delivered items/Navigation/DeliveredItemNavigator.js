@@ -3,10 +3,10 @@ import DeliveredItemDetailsScreen from "../Screens/DeliveredItemDetailsScreen";
 import DeliveredItemListScreen from "../Screens/DeliveredItemListScreen";
 import PaymentScreen from "../Screens/PaymentScreen";
 
-import RegisterPage from "../../Requisition/Components/IT20122614/AddRequisition";
-import PendingRequisition from "../../Requisition/Components/IT20122614/PendingRequisition";
-import SpecificRequisition from "../../Requisition/Components/IT20122614/SpecificRequisition";
-import ApprovedRequisition from "../../Requisition/Components/IT20122614/ApprovedRequisition";
+// import RegisterPage from "../../Requisition/Components/IT20122614/AddRequisition";
+// import PendingRequisition from "../../Requisition/Components/IT20122614/PendingRequisition";
+// import SpecificRequisition from "../../Requisition/Components/IT20122614/SpecificRequisition";
+// import ApprovedRequisition from "../../Requisition/Components/IT20122614/ApprovedRequisition";
 const Stack = createNativeStackNavigator();
 export default function DeliveredItemNavigator() {
   return (
@@ -21,8 +21,12 @@ export default function DeliveredItemNavigator() {
         component={DeliveredItemDetailsScreen}
         options={{ headerShown: false }}
       />
-      <Stack.Screen name="Payment" component={PaymentScreen}  options={{ headerShown: false }} />
-      <Stack.Screen name="Register" component={RegisterPage} />
+      <Stack.Screen
+        name="Payment"
+        component={PaymentScreen}
+        options={{ headerShown: false }}
+      />
+      {/* <Stack.Screen name="Register" component={RegisterPage} />
       <Stack.Screen
         name="Approved"
         component={ApprovedRequisition}
@@ -33,7 +37,7 @@ export default function DeliveredItemNavigator() {
         component={PendingRequisition}
         options={{ headerShown: false }}
       />
-      <Stack.Screen name="pending-single" component={SpecificRequisition} options={{ headerShown: false }} />
+      <Stack.Screen name="pending-single" component={SpecificRequisition} options={{ headerShown: false }} /> */}
     </Stack.Navigator>
   );
 }

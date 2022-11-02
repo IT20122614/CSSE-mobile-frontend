@@ -10,6 +10,7 @@ import RegisterPage from "../../Requisition/Components/IT20122614/AddRequisition
 import PendingRequisition from "../../Requisition/Components/IT20122614/PendingRequisition";
 import SpecificRequisition from "../../Requisition/Components/IT20122614/SpecificRequisition";
 import ApprovedRequisition from "../../Requisition/Components/IT20122614/ApprovedRequisition";
+import ApprovedList from "../../Requisition/Components/IT20122614/ApprovedList";
 
 const Drawer = createDrawerNavigator();
 

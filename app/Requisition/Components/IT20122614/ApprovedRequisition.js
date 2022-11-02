@@ -116,13 +116,19 @@ export default function ApprovedRequisition({ navigation }) {
           </View>
         </View>
         <View style={[styles.box3]}>
-          <TouchableOpacity style={styles.button}>
+          <TouchableOpacity
+            style={styles.button}
+            onPress={() => navigation.navigate("Register")}
+          >
             <Text style={styles.buttonText}>View</Text>
           </TouchableOpacity>
         </View>
       </View>
     </View>
   );
+  // {
+  //   itemsData: item,
+  // }
   const [selectedId, setSelectedId] = useState(null);
 
   const renderItem = ({ item }) => {
