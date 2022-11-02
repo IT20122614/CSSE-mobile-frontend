@@ -11,6 +11,9 @@ import PendingRequisition from "../../Requisition/Components/IT20122614/PendingR
 import SpecificRequisition from "../../Requisition/Components/IT20122614/SpecificRequisition";
 import ApprovedRequisition from "../../Requisition/Components/IT20122614/ApprovedRequisition";
 import ApprovedList from "../../Requisition/Components/IT20122614/ApprovedList";
+import ApprovedNavigator from "../../Requisition/RequisitionNavigator/ApprovedNavigator";
+import PendingNavigator from "../../Requisition/RequisitionNavigator/PendingNavigator";
+import RequisitionNavigator from "../../Requisition/RequisitionNavigator/RequisitionNavigator";
 
 const Drawer = createDrawerNavigator();
 
@@ -50,7 +53,7 @@ export default function MyDrawer() {
       />
       <Drawer.Screen
         name="Add PR"
-        component={RegisterPage}
+        component={RequisitionNavigator}
         options={{
           drawerIcon: ({ size, color }) => (
             <MaterialCommunityIcons
@@ -63,7 +66,7 @@ export default function MyDrawer() {
       />
       <Drawer.Screen
         name="Pending PR"
-        component={PendingRequisition}
+        component={PendingNavigator}
         options={{
           drawerIcon: ({ size, color }) => (
             <MaterialCommunityIcons
@@ -76,7 +79,7 @@ export default function MyDrawer() {
       />
       <Drawer.Screen
         name="Approved PR"
-        component={ApprovedRequisition}
+        component={ApprovedNavigator}
         options={{
           drawerIcon: ({ size, color }) => (
             <MaterialCommunityIcons

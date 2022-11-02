@@ -10,6 +10,7 @@ import {
   ScrollView,
   FlatList,
 } from "react-native";
+import avatarImg from "../assets/avatarIcon.png";
 
 export default function ApprovedList() {
   return (
@@ -52,39 +53,83 @@ export default function ApprovedList() {
         <View style={styles.rowGrid}>
           <View style={styles.column1}>
             <View style={styles.row}>
-              <View style={styles.columninsight}>
-                <Text style={styles.textContent}>Brand </Text>
+              <View style={styles.columninsight2}>
+                <Image source={avatarImg} alt="#" style={styles.avatarImgs} />
               </View>
               <View style={[styles.columninsight]}>
-                <Text style={[styles.textContentData]}>: Pending</Text>
+                <Text style={[styles.textContentData]}>Supplier ID: 5</Text>
               </View>
             </View>
-            <Text style={styles.textContent}>Reference Number </Text>
-            <Text style={styles.textContent}>Reference Number </Text>
-            <Text style={styles.textContent}>Reference Number </Text>
+            <View style={styles.smallBox}>
+              <View style={styles.box1}>
+                <Text style={styles.textContent}>Unit Price : 50kg</Text>
+                <Text style={styles.textContent}>Quantity : 50kg</Text>
+                <Text style={styles.textContent}>Can be delibered : 50kg</Text>
+              </View>
+              <View style={[styles.box2]}></View>
+            </View>
           </View>
-          <View style={[styles.column1]}>
-            <Text style={[styles.textContentData]}>: Pending</Text>
-          </View>
-        </View>
-        <View style={styles.rowGrid}>
           <View style={styles.column1}>
             <View style={styles.row}>
-              <View style={styles.columninsight}>
-                <Text style={styles.textContent}>Brand </Text>
+              <View style={styles.columninsight2}>
+                <Image source={avatarImg} alt="#" style={styles.avatarImgs} />
               </View>
               <View style={[styles.columninsight]}>
-                <Text style={[styles.textContentData]}>: Pending</Text>
+                <Text style={[styles.textContentData]}>Supplier ID: 5</Text>
               </View>
             </View>
-            <Text style={styles.textContent}>Reference Number </Text>
-            <Text style={styles.textContent}>Reference Number </Text>
-            <Text style={styles.textContent}>Reference Number </Text>
+            <View style={styles.smallBox}>
+              <View style={styles.box1}>
+                <Text style={styles.textContent}>Unit Price : 50kg</Text>
+                <Text style={styles.textContent}>Quantity : 50kg</Text>
+                <Text style={styles.textContent}>Can be delibered : 50kg</Text>
+              </View>
+              <View style={[styles.box2]}></View>
+            </View>
           </View>
-          <View style={[styles.column1]}>
-            <Text style={[styles.textContentData]}>: Pending</Text>
+          <View style={styles.column1}>
+            <View style={styles.row}>
+              <View style={styles.columninsight2}>
+                <Image source={avatarImg} alt="#" style={styles.avatarImgs} />
+              </View>
+              <View style={[styles.columninsight]}>
+                <Text style={[styles.textContentData]}>Supplier ID: 5</Text>
+              </View>
+            </View>
+            <View style={styles.smallBox}>
+              <View style={styles.box1}>
+                <Text style={styles.textContent}>Unit Price : 50kg</Text>
+                <Text style={styles.textContent}>Quantity : 50kg</Text>
+                <Text style={styles.textContent}>Can be delibered : 50kg</Text>
+              </View>
+              <View style={[styles.box2]}></View>
+            </View>
+          </View>
+          <View style={styles.column1}>
+            <View style={styles.row}>
+              <View style={styles.columninsight2}>
+                <Image source={avatarImg} alt="#" style={styles.avatarImgs} />
+              </View>
+              <View style={[styles.columninsight]}>
+                <Text style={[styles.textContentData]}>Supplier ID: 12</Text>
+              </View>
+            </View>
+            <View style={styles.smallBox}>
+              <View style={styles.box1}>
+                <Text style={styles.textContent}>Unit Price : 250kg</Text>
+                <Text style={styles.textContent}>Quantity : 50kg</Text>
+                <Text style={styles.textContent}>Can be delibered : 50kg</Text>
+              </View>
+              <View style={[styles.box2]}></View>
+            </View>
           </View>
         </View>
+        <TouchableOpacity
+          style={styles.button}
+          onPress={() => navigation.navigate("approveSingle")}
+        >
+          <Text style={styles.buttonText}>View</Text>
+        </TouchableOpacity>
       </View>
     </SafeAreaView>
   );
@@ -98,21 +143,36 @@ const styles = StyleSheet.create({
     margin: 20,
     borderRadius: 15,
   },
+  button: {
+    backgroundColor: "#f7d52a",
+    padding: 5,
+    borderRadius: 30,
+    alignItems: "center",
+    justifyContent: "center",
+    shadowColor: "black",
+    shadowOpacity: 1,
+    marginTop: 20,
+    width: 80,
+  },
   column1: {
     paddingLeft: 0,
     paddingTop: 10,
-    width: 160,
-    backgroundColor: "grey",
+    width: 130,
+    backgroundColor: "#e1e3e1",
     margin: 10,
     borderRadius: 10,
+    padding: 10,
   },
   avatarImgs: {
-    width: 50,
-    height: 50,
-    marginLeft: 20,
+    width: 30,
+    height: 30,
+    marginLeft: 0,
   },
   textContent: {
     marginTop: 5,
+  },
+  textContentSizeSmall: {
+    fontSize: 12,
   },
   textContentData: {
     marginTop: 0,
@@ -120,7 +180,12 @@ const styles = StyleSheet.create({
   columninsight: {
     paddingLeft: 0,
     paddingTop: 5,
-    width: 50,
+    width: 70,
+  },
+  columninsight2: {
+    paddingLeft: 0,
+    paddingTop: 5,
+    width: 30,
   },
   box1: {
     paddingLeft: 0,
@@ -160,8 +225,15 @@ const styles = StyleSheet.create({
   row: {
     flexDirection: "row",
     flexWrap: "wrap",
-    marginLeft: 20,
+    marginLeft: 10,
   },
+  smallBox: {
+    flexDirection: "row",
+    flexWrap: "wrap",
+    marginLeft: 10,
+    backgroundColor: "yellow",
+  },
+
   noBackColor: {
     flexDirection: "row",
     flexWrap: "wrap",

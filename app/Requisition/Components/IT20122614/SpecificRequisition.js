@@ -14,6 +14,15 @@ const avatarImg = require("../../../../assets/avatarIcon.png");
 export default function SpecificRequisition({ route, navigation }) {
   // Get the param
   const { itemsData } = route.params;
+
+  function formatDate(date) {
+    return [
+      date.getFullYear(),
+      padTo2Digits(date.getMonth() + 1),
+      padTo2Digits(date.getDate()),
+    ].join("-");
+  }
+
   return (
     <SafeAreaView style={styles.mainSheet}>
       <Text style={styles.headerMain}>View Specific Purchase Requisition</Text>
@@ -29,7 +38,9 @@ export default function SpecificRequisition({ route, navigation }) {
                 <Text style={styles.fontSize1}>ID : 1</Text>
               </View>
               <View>
-                <Text style={styles.fontSize2}>Date: hhhhhhh</Text>
+                <Text style={styles.fontSize2}>
+                  Date: {itemsData.deliveryDate}
+                </Text>
               </View>
             </View>
           </View>
@@ -46,7 +57,9 @@ export default function SpecificRequisition({ route, navigation }) {
               <Text style={[styles.textContent]}>Site Manager Name : </Text>
             </View>
             <View style={[styles.box2]}>
-              <Text style={[styles.textContentData]}></Text>
+              <Text style={[styles.textContentData]}>
+                {itemsData.siteManagerName}
+              </Text>
             </View>
           </View>
           <View style={styles.row}>
@@ -54,23 +67,25 @@ export default function SpecificRequisition({ route, navigation }) {
               <Text style={[styles.textContent]}>Supplier Name : </Text>
             </View>
             <View style={[styles.box2]}>
-              <Text style={[styles.textContentData]}></Text>
+              <Text style={[styles.textContentData]}>
+                {itemsData.supplierName}
+              </Text>
             </View>
           </View>
-          <View style={styles.row2}>
+          {/* <View style={styles.row2}>
             <View style={[styles.box1]}>
               <Text style={[styles.textContent]}>Site Name : </Text>
             </View>
             <View style={[styles.box2]}>
-              <Text style={[styles.textContentData]}></Text>
+              <Text style={[styles.textContentData]}>{itemsData.deliveryDate}</Text>
             </View>
-          </View>
+          </View> */}
           <View style={styles.row}>
             <View style={[styles.box1]}>
               <Text style={[styles.textContent]}>Quantity : </Text>
             </View>
             <View style={[styles.box2]}>
-              <Text style={[styles.textContentData]}></Text>
+              <Text style={[styles.textContentData]}>{itemsData.quantity}</Text>
             </View>
           </View>
           <View style={styles.row2}>
@@ -78,7 +93,7 @@ export default function SpecificRequisition({ route, navigation }) {
               <Text style={[styles.textContent]}>Item : </Text>
             </View>
             <View style={[styles.box2]}>
-              <Text style={[styles.textContentData]}></Text>
+              <Text style={[styles.textContentData]}>{itemsData.itemName}</Text>
             </View>
           </View>
           <View style={styles.row}>
@@ -86,7 +101,7 @@ export default function SpecificRequisition({ route, navigation }) {
               <Text style={[styles.textContent]}>Notes : </Text>
             </View>
             <View style={[styles.box2]}>
-              <Text style={[styles.textContentData]}></Text>
+              <Text style={[styles.textContentData]}>{itemsData.notes}</Text>
             </View>
           </View>
         </View>
@@ -157,6 +172,14 @@ const styles = StyleSheet.create({
     marginTop: 10,
     marginBottom: 5,
     padding: 8,
+  },
+  rowSmall: {
+    flexDirection: "row",
+    flexWrap: "wrap",
+    backgroundColor: "#FCE754",
+    marginTop: 5,
+    marginBottom: 5,
+    padding: 2,
   },
   noBackColor: {
     flexDirection: "row",

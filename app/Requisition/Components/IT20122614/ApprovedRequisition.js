@@ -118,7 +118,7 @@ export default function ApprovedRequisition({ navigation }) {
         <View style={[styles.box3]}>
           <TouchableOpacity
             style={styles.button}
-            onPress={() => navigation.navigate("Register")}
+            onPress={() => navigation.navigate("approveSingle")}
           >
             <Text style={styles.buttonText}>View</Text>
           </TouchableOpacity>
