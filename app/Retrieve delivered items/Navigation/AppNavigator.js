@@ -6,6 +6,7 @@ import PendingRequisition from "../../Requisition/Components/IT20122614/PendingR
 import RegisterPage from "../../Requisition/Components/IT20122614/RegisterPage";
 import Entypo from "react-native-vector-icons/Entypo";
 import Ionicons from "react-native-vector-icons/Ionicons";
+import Home from "../../Requisition/Common/Home";
 
 const Drawer = createDrawerNavigator();
 
@@ -27,7 +28,7 @@ export default function MyDrawer() {
     >
       <Drawer.Screen
         name="Home"
-        component={PendingRequisition}
+        component={Home}
         options={{
           drawerIcon: ({ size, color }) => (
             <MaterialCommunityIcons name="home" size={size} color={color} />
