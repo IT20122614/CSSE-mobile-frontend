@@ -29,7 +29,7 @@ export default function SpecificRequisition({ route, navigation }) {
                 <Text style={styles.fontSize1}>ID : 1</Text>
               </View>
               <View>
-                <Text style={styles.fontSize2}>Date: 2022/10/29</Text>
+                <Text style={styles.fontSize2}>Date: hhhhhhh</Text>
               </View>
             </View>
           </View>
@@ -38,7 +38,7 @@ export default function SpecificRequisition({ route, navigation }) {
               <Text style={styles.textContent}>Status : </Text>
             </View>
             <View style={[styles.box2]}>
-              <Text style={[styles.textContentData]}>{itemsData.status}</Text>
+              <Text style={[styles.textContentData]}>Pending</Text>
             </View>
           </View>
           <View style={styles.row2}>
@@ -46,7 +46,7 @@ export default function SpecificRequisition({ route, navigation }) {
               <Text style={[styles.textContent]}>Site Manager Name : </Text>
             </View>
             <View style={[styles.box2]}>
-              <Text style={[styles.textContentData]}>{itemsData.name}</Text>
+              <Text style={[styles.textContentData]}></Text>
             </View>
           </View>
           <View style={styles.row}>
@@ -54,7 +54,7 @@ export default function SpecificRequisition({ route, navigation }) {
               <Text style={[styles.textContent]}>Supplier Name : </Text>
             </View>
             <View style={[styles.box2]}>
-              <Text style={[styles.textContentData]}>{itemsData.name}</Text>
+              <Text style={[styles.textContentData]}></Text>
             </View>
           </View>
           <View style={styles.row2}>
@@ -62,7 +62,7 @@ export default function SpecificRequisition({ route, navigation }) {
               <Text style={[styles.textContent]}>Site Name : </Text>
             </View>
             <View style={[styles.box2]}>
-              <Text style={[styles.textContentData]}>{itemsData.status}</Text>
+              <Text style={[styles.textContentData]}></Text>
             </View>
           </View>
           <View style={styles.row}>
@@ -70,7 +70,7 @@ export default function SpecificRequisition({ route, navigation }) {
               <Text style={[styles.textContent]}>Quantity : </Text>
             </View>
             <View style={[styles.box2]}>
-              <Text style={[styles.textContentData]}>{itemsData.status}</Text>
+              <Text style={[styles.textContentData]}></Text>
             </View>
           </View>
           <View style={styles.row2}>
@@ -78,7 +78,7 @@ export default function SpecificRequisition({ route, navigation }) {
               <Text style={[styles.textContent]}>Item : </Text>
             </View>
             <View style={[styles.box2]}>
-              <Text style={[styles.textContentData]}>{itemsData.status}</Text>
+              <Text style={[styles.textContentData]}></Text>
             </View>
           </View>
           <View style={styles.row}>
@@ -86,7 +86,7 @@ export default function SpecificRequisition({ route, navigation }) {
               <Text style={[styles.textContent]}>Notes : </Text>
             </View>
             <View style={[styles.box2]}>
-              <Text style={[styles.textContentData]}>{itemsData.status}</Text>
+              <Text style={[styles.textContentData]}></Text>
             </View>
           </View>
         </View>
@@ -173,12 +173,12 @@ const styles = StyleSheet.create({
     marginBottom: 5,
     padding: 8,
   },
-  fontSize1:{
+  fontSize1: {
     fontSize: 20,
     marginLeft: 0,
   },
-  fontSize2:{
+  fontSize2: {
     fontSize: 20,
     marginLeft: 20,
-  }
+  },
 });

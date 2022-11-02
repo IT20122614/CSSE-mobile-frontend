@@ -32,7 +32,7 @@ export default function DeliveredItemNavigator() {
         component={PendingRequisition}
         options={{ headerShown: false }}
       />
-      <Stack.Screen name="pending-single" component={SpecificRequisition} />
+      <Stack.Screen name="pending-single" component={SpecificRequisition} options={{ headerShown: false }} />
     </Stack.Navigator>
   );
 }
