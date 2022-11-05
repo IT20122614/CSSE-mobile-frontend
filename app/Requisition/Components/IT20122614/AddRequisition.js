@@ -23,10 +23,10 @@ export default function AddRequisition({ navigation }) {
   const [quantity, setQuantity] = useState(0);
   const [type, setType] = useState("");
   const [notes, setNotes] = useState("");
-  const [selectedLanguage, setSelectedLanguage] = useState("");
+  const [selectedLanguage, setSelectedLanguage] = useState("Anura Jayasekara");
   const [selectedItems, setSelectedItems] = useState("");
   const [open, setOpen] = useState(false);
-  const [date, setDate] = useState(new Date(1598051730000));
+  const [date, setDate] = useState(new Date());
   const [mode, setMode] = useState("date");
   const [show, setShow] = useState(false);
 
@@ -65,6 +65,8 @@ export default function AddRequisition({ navigation }) {
       supplierName: selectedLanguage,
       unitType: type,
     };
+    console.log("nnnnnnnnnn");
+    console.log(order);
     http
       .post(`/requisition/add-new`, order)
       .then((result) => {
@@ -78,7 +80,7 @@ export default function AddRequisition({ navigation }) {
   function resetOrderData() {
     setaddress("");
     setSelectedItems("");
-    setDate(new Date(1598051730000));
+    setDate(new Date());
     setQuantity(0);
     setNotes("");
     setsiteManagerName("");
@@ -195,8 +197,7 @@ export default function AddRequisition({ navigation }) {
               <View>
                 <TextInput
                   style={styles.inputField}
-                  value={date}
-                  placeholder="         dd/mm/yyyy"
+                  value={date.toDateString()}
                   keyboardType="text"
                   editable={false}
                 />

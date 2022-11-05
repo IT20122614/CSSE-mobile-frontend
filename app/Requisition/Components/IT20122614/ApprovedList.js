@@ -9,10 +9,17 @@ import {
   SafeAreaView,
   ScrollView,
   FlatList,
+  Alert,
 } from "react-native";
 import avatarImg from "../assets/avatarIcon.png";
 
-export default function ApprovedList() {
+export default function ApprovedList({ route, navigation }) {
+  const { itemsData } = route.params;
+
+  function saveData() {
+    alert("Saved");
+  }
+
   return (
     <SafeAreaView style={styles.mainSheet}>
       <View>
@@ -21,7 +28,7 @@ export default function ApprovedList() {
             <Text style={styles.textContent}>Reference Number </Text>
           </View>
           <View style={[styles.box2]}>
-            <Text style={[styles.textContentData]}>: 1</Text>
+            <Text style={[styles.textContentData]}>: {itemsData.id}</Text>
           </View>
         </View>
         <View style={styles.row}>
@@ -29,7 +36,7 @@ export default function ApprovedList() {
             <Text style={styles.textContent}>Item </Text>
           </View>
           <View style={[styles.box2]}>
-            <Text style={[styles.textContentData]}>: Cement</Text>
+            <Text style={[styles.textContentData]}>: {itemsData.itemName}</Text>
           </View>
         </View>
         <View style={styles.row}>
@@ -37,17 +44,19 @@ export default function ApprovedList() {
             <Text style={styles.textContent}>Quantity </Text>
           </View>
           <View style={[styles.box2]}>
-            <Text style={[styles.textContentData]}>: 50Kg</Text>
+            <Text style={[styles.textContentData]}>
+              : {itemsData.quantity} {itemsData.unitType}
+            </Text>
           </View>
         </View>
-        <View style={styles.row}>
+        {/* <View style={styles.row}>
           <View style={styles.box1}>
             <Text style={styles.textContent}>Brand </Text>
           </View>
           <View style={[styles.box2]}>
-            <Text style={[styles.textContentData]}>: INSEE</Text>
+            <Text style={[styles.textContentData]}>: {itemsData.unitType}</Text>
           </View>
-        </View>
+        </View> */}
       </View>
       <View>
         <View style={styles.rowGrid}>
@@ -62,9 +71,11 @@ export default function ApprovedList() {
             </View>
             <View style={styles.smallBox}>
               <View style={styles.box1}>
-                <Text style={styles.textContent}>Unit Price : 50kg</Text>
-                <Text style={styles.textContent}>Quantity : 50kg</Text>
-                <Text style={styles.textContent}>Can be delibered : 50kg</Text>
+                <Text style={styles.textContent}>Unit Price : Rs.3000</Text>
+                <Text style={styles.textContent}>Quantity : 5</Text>
+                <Text style={styles.textContent}>
+                  Can be delibered : Sep 5 2022
+                </Text>
               </View>
               <View style={[styles.box2]}></View>
             </View>
@@ -80,9 +91,11 @@ export default function ApprovedList() {
             </View>
             <View style={styles.smallBox}>
               <View style={styles.box1}>
-                <Text style={styles.textContent}>Unit Price : 50kg</Text>
-                <Text style={styles.textContent}>Quantity : 50kg</Text>
-                <Text style={styles.textContent}>Can be delibered : 50kg</Text>
+                <Text style={styles.textContent}>Unit Price : Rs.100</Text>
+                <Text style={styles.textContent}>Quantity : 50</Text>
+                <Text style={styles.textContent}>
+                  Can be delibered : Sep 5 2022
+                </Text>
               </View>
               <View style={[styles.box2]}></View>
             </View>
@@ -98,9 +111,11 @@ export default function ApprovedList() {
             </View>
             <View style={styles.smallBox}>
               <View style={styles.box1}>
-                <Text style={styles.textContent}>Unit Price : 50kg</Text>
-                <Text style={styles.textContent}>Quantity : 50kg</Text>
-                <Text style={styles.textContent}>Can be delibered : 50kg</Text>
+                <Text style={styles.textContent}>Unit Price : Rs.500</Text>
+                <Text style={styles.textContent}>Quantity : 40</Text>
+                <Text style={styles.textContent}>
+                  Can be delibered : Sep 2 2022
+                </Text>
               </View>
               <View style={[styles.box2]}></View>
             </View>
@@ -116,20 +131,21 @@ export default function ApprovedList() {
             </View>
             <View style={styles.smallBox}>
               <View style={styles.box1}>
-                <Text style={styles.textContent}>Unit Price : 250kg</Text>
-                <Text style={styles.textContent}>Quantity : 50kg</Text>
-                <Text style={styles.textContent}>Can be delibered : 50kg</Text>
+                <Text style={styles.textContent}>Unit Price : Rs200</Text>
+                <Text style={styles.textContent}>Quantity : 20</Text>
+                <Text style={styles.textContent}>
+                  Can be delibered : Sep 15 2022
+                </Text>
               </View>
               <View style={[styles.box2]}></View>
             </View>
           </View>
         </View>
-        <TouchableOpacity
-          style={styles.button}
-          onPress={() => navigation.navigate("approveSingle")}
-        >
-          <Text style={styles.buttonText}>View</Text>
-        </TouchableOpacity>
+        <View style={[styles.saveBtn]}>
+          <TouchableOpacity style={styles.button} onPress={saveData}>
+            <Text style={styles.buttonText}>Save</Text>
+          </TouchableOpacity>
+        </View>
       </View>
     </SafeAreaView>
   );
@@ -142,6 +158,9 @@ const styles = StyleSheet.create({
     paddingBottom: 20,
     margin: 20,
     borderRadius: 15,
+  },
+  saveBtn: {
+    marginLeft: "70%",
   },
   button: {
     backgroundColor: "#f7d52a",
@@ -157,7 +176,7 @@ const styles = StyleSheet.create({
   column1: {
     paddingLeft: 0,
     paddingTop: 10,
-    width: 130,
+    width: 160,
     backgroundColor: "#e1e3e1",
     margin: 10,
     borderRadius: 10,
@@ -170,6 +189,8 @@ const styles = StyleSheet.create({
   },
   textContent: {
     marginTop: 5,
+    fontSize: 12,
+    marginLeft: 10,
   },
   textContentSizeSmall: {
     fontSize: 12,

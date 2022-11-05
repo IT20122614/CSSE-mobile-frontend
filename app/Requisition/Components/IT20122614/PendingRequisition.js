@@ -65,6 +65,7 @@ export default function PendingRequisition({ navigation }) {
       http
         .get(`/requisition/get-pending-orders`)
         .then((result) => {
+          console.log("bchdbchdccccccccccc");
           console.log(result.data);
           setPendingList(result.data);
         })
@@ -151,7 +152,7 @@ const styles = StyleSheet.create({
   box1: {
     paddingLeft: 0,
     paddingTop: 10,
-    width: 110,
+    width: 90,
   },
   box2: {
     padding: 10,
@@ -203,7 +204,7 @@ const styles = StyleSheet.create({
     marginLeft: 30,
   },
   textContent: {
-    fontSize: 20,
+    fontSize: 16,
     textAlign: "left",
   },
   bodyContent: {

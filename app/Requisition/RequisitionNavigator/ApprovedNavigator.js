@@ -11,7 +11,11 @@ export default function ApprovedNavigator() {
         component={ApprovedRequisition}
         options={{ headerShown: false }}
       />
-      <Stack.Screen name="approveSingle" component={ApprovedList} />
+      <Stack.Screen
+        name="approveSingle"
+        component={ApprovedList}
+        options={{ headerShown: false }}
+      />
     </Stack.Navigator>
   );
 }
